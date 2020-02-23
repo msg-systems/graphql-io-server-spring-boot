@@ -1,0 +1,12 @@
+schema {
+	query: Query
+}
+
+type Query {
+	counter: Counter
+}
+
+type Counter {
+	value: Int
+	increase: Counter
+}
