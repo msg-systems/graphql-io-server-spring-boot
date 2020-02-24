@@ -21,50 +21,57 @@
  *
  * <p>****************************************************************************
  */
-package com.graphqlio.server.samples.service;
+package com.graphqlio.server.samples.resolvers;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.ApplicationArguments;
-import org.springframework.boot.ApplicationRunner;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
-import com.graphqlio.server.samples.resolvers.CounterResolver;
-import com.graphqlio.server.samples.resolvers.QueryResolver;
-import com.graphqlio.server.samples.resolvers.MutationResolver;
-import com.graphqlio.server.server.GsServer;
+import com.coxautodev.graphql.tools.GraphQLMutationResolver;
+import com.graphqlio.gts.context.GtsContext;
+import com.graphqlio.gts.tracking.GtsRecord;
+import com.graphqlio.gts.tracking.GtsScope;
+import com.graphqlio.gts.tracking.GtsRecord.GtsArityType;
+import com.graphqlio.gts.tracking.GtsRecord.GtsOperationType;
+import com.graphqlio.server.samples.domain.Counter;
+import com.graphqlio.server.samples.domain.CounterRepository;
+
+import graphql.schema.DataFetchingEnvironment;
 
 /**
- * Service responsible for starting GraphQLIO Server and registering the GraphQL application resolvers
+ * Root mutation resolver for resolving counter/increase.
  *
  * @author Michael Schäfer
  * @author Torsten Kühnert
  * @author Dr. Edgar Müller
  */
 
-@Service
-public class CounterService implements ApplicationRunner {
+
+@Component
+public class MutationResolver implements GraphQLMutationResolver {
+
+	
+	  private CounterRepository repo;
+
+	  public MutationResolver(CounterRepository repo) {
+	    this.repo = repo;
+	  }
+
+	  public Counter counter(DataFetchingEnvironment env) {
+	    Counter counter = repo.getCounter();
+
+	    GtsContext context = env.getContext();
+	    GtsScope scope = context.getScope();
+
+	    scope.addRecord(
+	        GtsRecord.builder()
+	            .op(GtsOperationType.UPDATE)
+	            .arity(GtsArityType.ONE)
+	            .dstType(Counter.class.getName())
+	            .dstIds(new String[] {"0"})
+	            .dstAttrs(new String[] {"*"})
+	            .build());
+
+	    return counter;
+	  }
 	
 	
-	@Autowired
-	CounterResolver counterResolver;
-
-	@Autowired
-	QueryResolver queryResolver;
-
-	@Autowired
-	MutationResolver mutationResolver;
-
-	@Autowired
-	private GsServer gsServer;
-	
-	CounterService(){
-	}
-
-	public	void run(ApplicationArguments args) throws Exception {	
-		
-		gsServer.registerGraphQLResolver(counterResolver);
-		gsServer.registerGraphQLResolver(queryResolver);
-		gsServer.registerGraphQLResolver(mutationResolver);
-		gsServer.start();		
-	}
 }

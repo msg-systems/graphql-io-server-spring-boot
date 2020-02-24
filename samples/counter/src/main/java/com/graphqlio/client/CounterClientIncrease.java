@@ -46,8 +46,8 @@ import org.springframework.web.socket.handler.TextWebSocketHandler;
 public class CounterClientIncrease {
 
   private final String Query =
-      "[1,0,\"GRAPHQL-REQUEST\",{\"query\":\"{ counter { increase { value } } }\"}]";
-
+      "[1,0,\"GRAPHQL-REQUEST\",{\"query\":\"mutation { counter { increase { value } } }\"}]";
+    
   public static void main(String[] args) {
     new CounterClientIncrease().runQuery();
   }

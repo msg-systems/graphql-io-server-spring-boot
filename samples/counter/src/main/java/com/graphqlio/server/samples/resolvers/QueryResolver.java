@@ -43,12 +43,14 @@ import graphql.schema.DataFetchingEnvironment;
  * @author Torsten Kühnert
  * @author Dr. Edgar Müller
  */
+
+
 @Component
-public class RootQueryResolver implements GraphQLQueryResolver {
+public class QueryResolver implements GraphQLQueryResolver {
 
   private CounterRepository repo;
 
-  public RootQueryResolver(CounterRepository repo) {
+  public QueryResolver(CounterRepository repo) {
     this.repo = repo;
   }
 
