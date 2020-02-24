@@ -37,18 +37,18 @@ import com.graphqlio.server.samples.domain.CounterRepository;
 import graphql.schema.DataFetchingEnvironment;
 
 /**
- * Object query resolver for resolving field increase in type Counter in graphql schema.
+ * Object mutation resolver for resolving field increase in type Counter in graphql schema.
  *
  * @author Michael Schäfer
  * @author Torsten Kühnert
  * @author Dr. Edgar Müller
  */
 @Component
-public class CounterQueryResolver implements GraphQLResolver<Counter> {
+public class CounterResolver implements GraphQLResolver<Counter> {
 
   private CounterRepository repo;
 
-  public CounterQueryResolver(CounterRepository repo) {
+  public CounterResolver(CounterRepository repo) {
     this.repo = repo;
   }
 

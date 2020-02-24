@@ -1,8 +1,13 @@
 schema {
 	query: Query
+	mutation: Mutation
 }
 
 type Query {
+	counter: Counter
+}
+
+type Mutation {
 	counter: Counter
 }
 
