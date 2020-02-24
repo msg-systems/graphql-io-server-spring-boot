@@ -56,8 +56,7 @@ public class CounterService implements ApplicationRunner {
 	CounterService(){
 	}
 
-	@Override
-	public void run(ApplicationArguments args) throws Exception {	
+	public	void run(ApplicationArguments args) throws Exception {	
 		
 		gsServer.registerGraphQLResolver(counterQueryResolver);
 		gsServer.registerGraphQLResolver(rootQueryResolver);
