@@ -52,7 +52,6 @@ public class SampleHelloWorldService implements ApplicationRunner {
 	SampleHelloWorldService(){
 	}
 
-	@Override
 	public void run(ApplicationArguments args) throws Exception {	
 		
 		gsServer.registerGraphQLResolver(helloWorldResolver);

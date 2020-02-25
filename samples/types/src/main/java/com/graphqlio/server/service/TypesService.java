@@ -53,7 +53,6 @@ public class TypesService implements ApplicationRunner {
 	@Autowired
 	private GsServer gsServer;
 	
-	@Override
 	public void run(ApplicationArguments args) throws Exception {	
 		
 		gsServer.registerGraphQLResolver(queryResolver);
