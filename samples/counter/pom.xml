@@ -3,12 +3,17 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	
-	<groupId>com.graphqlio.server</groupId>
+	<groupId>com.graphqlio.sample</groupId>
 	<artifactId>SampleCounter</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
 	<name>SampleCounter</name>
 	<description>graphqlio server counter sample</description>
 	
+	<parent>
+		<groupId>com.graphqlio.samples</groupId>
+		<artifactId>GraphqlioSamples</artifactId>
+		<version>0.0.1</version>
+	</parent>
+ 		
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -22,7 +27,8 @@
 	</dependencyManagement>
 	
 	<properties>
-		<java.version>1.8</java.version>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>1.8</maven.compiler.source>
 		<java.source.version>8</java.source.version>
 		<java.target.version>8</java.target.version>
 	</properties>

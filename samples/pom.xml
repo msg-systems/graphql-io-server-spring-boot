@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<groupId>com.graphqlio.samples</groupId>
+	<artifactId>graphqlio-samples</artifactId>
+	<name>graphqlio-samples</name>
+	<description>graphqlio samples aggregate</description>
+	<packaging>pom</packaging>
+	
+	<parent>
+		<groupId>com.graphqlio.springboot</groupId>
+		<artifactId>graphqlio-spring-boot</artifactId>
+		<version>0.0.1</version>
+	</parent>
+		
+	<modules>
+	    <module>counter</module>
+	    <module>helloworld</module>
+	    <module>flights</module>
+	    <module>types</module>
+	</modules>
+			
+	<properties>
+	</properties>
+	
+</project>
