@@ -11,8 +11,8 @@
 	<packaging>pom</packaging>
 	
 	<modules>
-	    <module>graphql-io-server-spring-boot-autoconfiguration</module>
-	    <module>graphql-io-server-spring-boot-starter</module>
+	    <module>autoconfiguration</module>
+	    <module>starter</module>
 	    <module>samples</module>
 	</modules>
 			
