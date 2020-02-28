@@ -7,13 +7,8 @@
 	<artifactId>SampleHelloWorld</artifactId>
 	<name>SampleHelloWorld</name>
 	<description>graphqlio server hello world sample</description>
+	<version>0.0.9</version>
 	
-	<parent>
-		<groupId>com.graphqlio.samples</groupId>
-		<artifactId>GraphqlioSamples</artifactId>
-	    <version>0.0.1</version>
-	</parent>
-
 	<properties>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<maven.compiler.source>1.8</maven.compiler.source>

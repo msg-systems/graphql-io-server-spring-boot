@@ -48,12 +48,6 @@
 		</license>
 	</licenses>
 
-	<parent>
-		<groupId>com.graphqlio.springboot</groupId>
-		<artifactId>graphqlio-spring-boot</artifactId>
-		<version>0.0.1</version>
-	</parent>
-
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
